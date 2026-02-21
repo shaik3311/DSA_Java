@@ -15,11 +15,10 @@ public class MaximumVowelsSubString{
         int max_count = 0;
 
         // Brute force approach with TC->O(n*k) SC->O(1) 
-        
         // while(right<str.length()){
         //     int count = 0;
         //     for(int i=left;i<=right;i++){
-        //         if(str.charAt(i)=='a'||str.charAt(i)=='e'||str.charAt(i)=='i'||str.charAt(i)=='o'||str.charAt(i)=='u'){
+        //         if(isVowel(str.charAt(i))){
         //             count++;
         //         }
         //     }
@@ -28,6 +27,32 @@ public class MaximumVowelsSubString{
         //     right++;
         // }
 
+
+        // Optimal approach with TC->O(n) SC->O(1) 
+        int count = 0;
+        for(int i=left;i<=right;i++){
+            if(isVowel(str.charAt(i))){
+                count++;
+            }
+        }
+        max_count = Math.max(max_count,count);
+        while(right<str.length()-1){
+            if(isVowel(str.charAt(left))){
+                count--;
+            }
+            left++;
+            right++;
+            if(isVowel(str.charAt(right))){
+                count++;
+            }
+            max_count = Math.max(max_count,count);
+        }
+
         System.out.println(max_count);
+    }
+    
+    // helper function for finding a char is vowel ?? 
+    public static boolean isVowel(char ch){
+        return (ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u');
     }
 }
