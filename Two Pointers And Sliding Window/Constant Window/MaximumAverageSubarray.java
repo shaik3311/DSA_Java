@@ -15,7 +15,7 @@ public class MaximumAverageSubarray{
         double max_avg = Double.NEGATIVE_INFINITY;
 
         // Brute Force method with TC->O(n*k), SC->O(1) 
-        
+
         // while(right<n){
         //     double sum = 0;
         //     for(int i=left;i<=right;i++){
@@ -27,6 +27,24 @@ public class MaximumAverageSubarray{
         //     left++;
         //     right++;
         // }
+
+
+        // Optimal approach with TC->O(n) SC->O(1)
+
+        // double sum = 0;
+        // for(int i=left;i<=right;i++){
+        //     sum += arr[i];
+        // }
+        // max_avg =sum/k;
+        // while(right<n-1){
+        //     sum = sum - arr[left];
+        //     left++;
+        //     right++;
+        //     sum = sum + arr[right];
+        //     double avg = sum/k;
+        //     max_avg = Math.max(max_avg,avg);
+        // }
+
 
         System.out.println(max_avg);
 
