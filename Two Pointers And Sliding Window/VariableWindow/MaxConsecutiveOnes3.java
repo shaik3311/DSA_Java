@@ -26,17 +26,36 @@ public class MaxConsecutiveOnes3{
         //     }
         // }
 
-        Better Approach With TC->O(2n) SC->O(1);
+        // Better Approach With TC->O(2n) SC->O(1);
+        // int zeros = 0;
+        // int left = 0;
+        // int right = 0;
+        // while(right<n){
+        //     if(arr[right]==0) zeros++;
+        //     while(zeros>k){
+        //         if(arr[left]==0) zeros--;
+        //         left++;
+        //     }
+        //     max = Math.max(max,right-left+1);
+        //     right++;
+        // }
+
+
+        // Optimal Approach With TC->O(n) SC->O(1) 
         int zeros = 0;
         int left = 0;
         int right = 0;
         while(right<n){
             if(arr[right]==0) zeros++;
-            while(zeros>k){
-                if(arr[left]==0) zeros--;
+            if(zeros>k){
+                if(arr[left]==0){
+                    zeros--;
+                }
                 left++;
             }
-            max = Math.max(max,right-left+1);
+            if(zeros<=k){
+                max = Math.max(max,right-left+1);
+            }
             right++;
         }
 
