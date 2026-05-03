@@ -23,11 +23,21 @@ public class ConvertArrayToLL {
             mover.next = temp;
             mover = temp;
         }
+        // Traversing the linked list
         Node temp = head;
         while(temp!=null){
             System.out.print(temp.data+" -> ");
             if(temp.next== null) System.out.print("null");
             temp = temp.next;
         }
+
+        // Length of the linked list
+        int len = 0;
+        Node temp2 = head;
+        while(temp2!=null){
+            len++;
+            temp2 = temp2.next;
+        }
+        System.out.println(len);
     }
 }
