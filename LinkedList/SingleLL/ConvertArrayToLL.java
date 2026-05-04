@@ -24,12 +24,12 @@ public class ConvertArrayToLL {
             mover = temp;
         }
         // Traversing the linked list
-        Node temp = head;
-        while(temp!=null){
-            System.out.print(temp.data+" -> ");
-            if(temp.next== null) System.out.print("null");
-            temp = temp.next;
-        }
+        // Node temp = head;
+        // while(temp!=null){
+        //     System.out.print(temp.data+" -> ");
+        //     if(temp.next== null) System.out.print("null");
+        //     temp = temp.next;
+        // }
 
         // Length of the linked list
         int len = 0;
@@ -38,6 +38,14 @@ public class ConvertArrayToLL {
             len++;
             temp2 = temp2.next;
         }
-        System.out.println(len);
+        System.out.println(search(head, 22));
+    }
+    public static boolean search(Node head,int elem){
+        Node temp = head;
+        while(temp!=null){
+            if(temp.data==elem) return true;
+            temp = temp.next;
+        }
+        return false;
     }
 }
