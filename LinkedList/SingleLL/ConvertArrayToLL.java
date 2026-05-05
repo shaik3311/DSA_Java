@@ -47,6 +47,18 @@ public class ConvertArrayToLL {
         temp.next = temp.next.next;
         return head;
     }
+    public static Node deleteValue(Node head,int val){
+        if(head==null || head.next==null) return head;
+        if(head.data == val){
+            return deleteHead(head);
+        }
+        Node temp = head;
+        while(temp.next.data != val){
+            temp = temp.next;
+        }
+        temp.next = temp.next.next;
+        return head;
+    }
     public static void main(String[] args) {
         int[] arr = {8,1,2,5,4,9};
         Node head = new Node(arr[0]);
@@ -65,7 +77,7 @@ public class ConvertArrayToLL {
         //     temp2 = temp2.next;
         // }
 
-        deletePosition(head, 1);
+        head = deleteValue(head, 8);
 
         // Traversing the linked list
         Node temp = head;
